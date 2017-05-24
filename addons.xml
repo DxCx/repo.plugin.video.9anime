@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-    <addon id="repo.plugin.video.9anime" name="9Anime Kodi Repository" version="0.0.1" provider-name="DxCx">
+    <addon id="repo.plugin.video.9anime" name="9Anime Kodi Repository" version="0.0.2" provider-name="DxCx">
         <requires>
             <import addon="xbmc.addon" version="12.0.0"/>
         </requires>
@@ -19,7 +19,7 @@
  			   <icon>resources/icon.png</icon>
  			   <fanart>resources/fanart.jpg</fanart>
  		    </assets>
-            <news>[B]1.0.0[/B][CR]• Initial release</news>
+            <news>[B]0.0.1[/B][CR]• Initial release</news>
 		</extension>
 	</addon>
 	
