@@ -7,7 +7,7 @@
         <extension point="xbmc.addon.repository" name="Guilouz Repository">
                 <info compressed="false">https://raw.githubusercontent.com/hoppler/repo.plugin.video.9anime/master/addons.xml</info>
                 <checksum>https://raw.githubusercontent.com/hoppler/repo.plugin.video.9anime/master/addons.xml.md5</checksum>
-                <datadir zip="true">https://github.com/hoppler/repo.plugin.video.9anime/raw/master</datadir>
+                <datadir zip="true">https://raw.github.com/hoppler/repo.plugin.video.9anime/raw/master</datadir>
                 <hashes>false</hashes>
         </extension>
         <extension point="xbmc.addon.metadata">
