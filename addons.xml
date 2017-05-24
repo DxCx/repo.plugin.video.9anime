@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+    <addon id="repo.plugin.video.9anime" name="9Anime Kodi Repository" version="0.0.1" provider-name="DxCx">
+        <requires>
+            <import addon="xbmc.addon" version="17.0.0"/>
+        </requires>
+        <extension point="xbmc.addon.repository" name="Guilouz Repository">
+                <info compressed="false">https://raw.githubusercontent.com/hoppler/repo.plugin.video.9anime/master/addons.xml</info>
+                <checksum>https://raw.githubusercontent.com/hoppler/repo.plugin.video.9anime/master/addons.xml.md5</checksum>
+                <datadir zip="true">https://github.com/hoppler/repo.plugin.video.9anime/raw/master</datadir>
+                <hashes>false</hashes>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+            <summary lang="en">Repository for 9Anime video plugin</summary>
+			<description lang="en">Download and install DxCx's addons repository.</description>
+			<source>https://github.com/DxCx/plugin.video.9anime</source>
+			<platform>all</platform>
+            <assets>
+ 			   <icon>resources/icon.png</icon>
+ 			   <fanart>resources/fanart.jpg</fanart>
+ 		    </assets>
+            <news>[B]1.0.0[/B][CR]• Initial release</news>
+		</extension>
+	</addon>
+	
+	<addon id="plugin.video.9anime" name="9Anime" version="0.0.3" provider-name="Hagai Cohen">
+		<requires>
+			<import addon="xbmc.gui" version="5.12.0"/>
+		</requires>
+		<extension point="xbmc.addon.metadata">
+			<summary lang="en">9Anime video plugin</summary>
+			<description lang="en">9anime is a great HD source for almost all animes out there</description>
+			<source>https://github.com/DxCx/plugin.video.9anime</source>
+			<platform>all</platform>
+			<assets>
+				<icon>resources_/icon.png</icon>
+				<fanart>resources_/fanart.jpg</fanart>
+			</assets>
+		</extension>
+	</addon>
+</addons>
