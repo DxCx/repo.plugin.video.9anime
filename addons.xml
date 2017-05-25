@@ -23,7 +23,7 @@
 		</extension>
 	</addon>
 	
-	<addon id="plugin.video.9anime" name="9Anime" version="0.0.4" provider-name="Hagai Cohen">
+	<addon id="plugin.video.9anime" name="9Anime" version="0.0.5" provider-name="Hagai Cohen">
 		<requires>
 			<import addon="xbmc.gui" version="5.12.0"/>
 		</requires>
@@ -41,4 +41,19 @@
 			</assets>
 		</extension>
 	</addon>
+	
+	<addon id="script.module.urlresolver" name="URLResolver" version="3.0.31" provider-name="tvaddons.ag, Eldorado">
+		<requires>
+			<import addon="xbmc.python" version="2.1.0" />
+			<import addon="plugin.video.youtube" optional="true" />
+			<import addon="script.module.python.twitch" optional="true" />
+		</requires>
+		<extension point="xbmc.python.module" library="lib" />
+		<extension point="xbmc.python.pluginsource" library="lib/default.py" />
+		<extension point="xbmc.addon.metadata">
+			<platform>all</platform>
+			<summary lang="en">Resolve common video host URL's to be playable in XBMC/Kodi.</summary>
+			<description lang="en">Resolve common video host URL's to be playable in XBMC/Kodi, simplify addon development of video plugins requiring multi video hosts.</description>
+	</extension>
+</addon>
 </addons>
