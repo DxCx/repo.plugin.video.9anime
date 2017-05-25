@@ -36,8 +36,8 @@
 			<source>https://github.com/DxCx/plugin.video.9anime</source>
 			<platform>all</platform>
 			<assets>
-				<icon>resources_/icon.png</icon>
-				<fanart>resources_/fanart.jpg</fanart>
+				<icon>resources/icon.png</icon>
+				<fanart>resources/fanart.jpg</fanart>
 			</assets>
 		</extension>
 	</addon>
