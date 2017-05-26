@@ -19,14 +19,16 @@
  			   <icon>resources/icon.png</icon>
  			   <fanart>resources/fanart.jpg</fanart>
  		    </assets>
-            <news>[B]0.0.1[/B][CR]• Initial release</news>
+            <news>[B]0.0.2[/B][CR]• Version update test</news>
 		</extension>
 	</addon>
 	
 	<addon id="plugin.video.9anime" name="9Anime" version="0.0.5" provider-name="Hagai Cohen">
 		<requires>
-			<import addon="xbmc.gui" version="5.12.0"/>
+			<import addon="xbmc.python" version="2.25.0"/>
 			<import addon="script.module.urlresolver" version="3.0.31"/>
+			<import addon="script.module.requests" version="2.12.4"/>
+			<import addon="script.common.plugin.cache" version="2.5.5"/>
 		</requires>
 		<extension point="xbmc.python.pluginsource" library="default.py">
 		   <provides>video</provides>
@@ -55,4 +57,22 @@
 			<description lang="en">Resolve common video host URL's to be playable in XBMC/Kodi, simplify addon development of video plugins requiring multi video hosts.</description>
 		</extension>
 	</addon>
+	
+	<addon id="script.module.requests" name="requests" version="2.14.2" provider-name="kennethreitz, beenje">
+	<requires>
+		<import addon="xbmc.python" version="2.14.0"/>
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.addon.metadata">
+		<summary>Python HTTP for Humans</summary>
+		<description>Packed for KODI from https://github.com/kennethreitz/requests</description>
+		<platform>all</platform>
+		<language></language>
+		<license>Apache2</license>
+		<forum></forum>
+		<website>http://python-requests.org</website>
+		<source>https://github.com/beenje/script.module.requests</source>
+		<email>beenje AT gmail.com</email>
+	</extension>
+</addon>
 </addons>
