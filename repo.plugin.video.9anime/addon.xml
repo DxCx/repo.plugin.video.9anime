@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="repo.plugin.video.9anime" name="9Anime Kodi Repository" version="0.0.2" provider-name="DxCx">
+<addon id="repo.plugin.video.9anime" name="9Anime Kodi Repository" version="0.0.3" provider-name="DxCx">
 	<requires>
 		<import addon="xbmc.addon" version="12.0.0"/>
 	</requires>
 	<extension point="xbmc.addon.repository" name="9Anime Kodi Repository">
-			<info compressed="false">https://raw.githubusercontent.com/hoppler/repo.plugin.video.9anime/master/addons.xml</info>
-			<checksum>https://raw.githubusercontent.com/hoppler/repo.plugin.video.9anime/master/addons.xml.md5</checksum>
-			<datadir zip="true">https://raw.githubusercontent.com/hoppler/repo.plugin.video.9anime/master</datadir>
+			<info compressed="false">https://raw.githubusercontent.com/DxCx/repo.plugin.video.9anime/master/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/DxCx/repo.plugin.video.9anime/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/DxCx/repo.plugin.video.9anime/master</datadir>
 			<hashes>false</hashes>
 	</extension>
 	<extension point="xbmc.addon.metadata">
