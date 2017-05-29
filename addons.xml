@@ -22,8 +22,8 @@
             <news>[B]0.0.2[/B][CR]• Version update test</news>
 		</extension>
 	</addon>
-	
-	<addon id="plugin.video.9anime" name="9Anime" version="0.0.6" provider-name="Hagai Cohen">
+
+	<addon id="plugin.video.9anime" name="9Anime" version="0.0.7" provider-name="Hagai Cohen">
 		<requires>
 			<import addon="xbmc.python" version="2.25.0"/>
 			<import addon="script.module.urlresolver" version="3.0.31"/>
