@@ -1,0 +1,3 @@
+[submodule "kodi-addons"]
+	path = kodi-addons
+	url = git@github.com:brianhornsby/kodi-addons.git
