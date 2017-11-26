@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addons>
-<addon id="plugin.video.9anime" name="9Anime" provider-name="DxCx" version="0.0.22">
+<addon id="script.module.requests"
+       name="requests"
+       version="2.14.2"
+       provider-name="kennethreitz, beenje">
   <requires>
-    <import addon="xbmc.python" version="2.25.0" />
-    <import addon="script.module.requests" version="2.12.4" />
-    <import addon="script.common.plugin.cache" version="2.5.5" />
-    <import addon="script.module.urlresolver" version="3.0.31" />
+    <import addon="xbmc.python" version="2.14.0"/>
   </requires>
-  <extension library="default.py" point="xbmc.python.pluginsource">
-        <provides>video</provides>
-  </extension>
+  <extension point="xbmc.python.module"
+             library="lib" />
   <extension point="xbmc.addon.metadata">
-    <summary lang="en">9Anime video plugin</summary>
-    <description lang="en">9anime is a great HD source for almost all animes out there</description>
-    <source>https://github.com/DxCx/plugin.video.9anime</source>
+    <summary>Python HTTP for Humans</summary>
+    <description>Packed for KODI from https://github.com/kennethreitz/requests</description>
     <platform>all</platform>
+    <language></language>
+    <license>Apache2</license>
+    <forum></forum>
+    <website>http://python-requests.org</website>
+    <source>https://github.com/beenje/script.module.requests</source>
+    <email>beenje AT gmail.com</email>
   </extension>
 </addon>
 
@@ -41,25 +45,21 @@
 	</extension>
 </addon>
 
-<addon id="script.module.requests"
-       name="requests"
-       version="2.14.2"
-       provider-name="kennethreitz, beenje">
+<addon id="plugin.video.9anime" name="9Anime" provider-name="DxCx" version="0.0.23">
   <requires>
-    <import addon="xbmc.python" version="2.14.0"/>
+    <import addon="xbmc.python" version="2.25.0" />
+    <import addon="script.module.requests" version="2.12.4" />
+    <import addon="script.common.plugin.cache" version="2.5.5" />
+    <import addon="script.module.urlresolver" version="3.0.31" />
   </requires>
-  <extension point="xbmc.python.module"
-             library="lib" />
+  <extension library="default.py" point="xbmc.python.pluginsource">
+        <provides>video</provides>
+  </extension>
   <extension point="xbmc.addon.metadata">
-    <summary>Python HTTP for Humans</summary>
-    <description>Packed for KODI from https://github.com/kennethreitz/requests</description>
+    <summary lang="en">9Anime video plugin</summary>
+    <description lang="en">9anime is a great HD source for almost all animes out there</description>
+    <source>https://github.com/DxCx/plugin.video.9anime</source>
     <platform>all</platform>
-    <language></language>
-    <license>Apache2</license>
-    <forum></forum>
-    <website>http://python-requests.org</website>
-    <source>https://github.com/beenje/script.module.requests</source>
-    <email>beenje AT gmail.com</email>
   </extension>
 </addon>
 
