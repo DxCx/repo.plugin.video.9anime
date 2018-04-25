@@ -5,11 +5,11 @@ git checkout master
 git remote update origin
 git reset --hard origin/master
 
-NEW_VERSION=`python updateLatest.py`
+NEW_VERSION=`python2 updateLatest.py`
 BRANCH_NAME=version-${NEW_VERSION}
 
 git checkout -b ${BRANCH_NAME}
-python kodi-addons/addons_xml_generator.py
+python2 kodi-addons/addons_xml_generator.py
 git add plugin.video.9anime
 git add addons.xml
 git add addons.xml.md5
