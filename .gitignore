@@ -8,3 +8,4 @@ _tools/
 .Trashes
 ehthumbs.db
 Thumbs.db
+*.pyc
