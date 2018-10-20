@@ -5,16 +5,19 @@ import xml.etree.ElementTree as ET
 import sys
 from updateLatest import downloadZip, extractMeta
 
-TEMP_DIR = "urlresolver_tmp"
-PLUGIN_NAME = "script.module.urlresolver"
-LATEST_ZIP = "https://github.com/tvaddonsco/script.module.urlresolver/archive/master.zip"
+DEP_MAP = {
+    "script.module.urlresolver":
+    "https://github.com/tvaddonsco/script.module.urlresolver/archive/master.zip",
+}
+
+TEMP_DIR = "dep_temp"
 
 def extractVersion(xmlPath):
     tree = ET.parse(xmlPath)
     root = tree.getroot()
     return root.attrib['version']
 
-def main():
+def procecss_dep(plugin_name, latest_zip):
 
     if os.path.isdir(TEMP_DIR):
         shutil.rmtree(TEMP_DIR)
@@ -23,24 +26,31 @@ def main():
     # resolve zip path
     tmpZip = "%s/master.zip" % (TEMP_DIR)
 
-    downloadZip(LATEST_ZIP, tmpZip)
+    downloadZip(latest_zip, tmpZip)
     extractMeta("./%s" % TEMP_DIR, tmpZip)
 
     # Get latest tag
     latestVersion = extractVersion("./%s/addon.xml" % TEMP_DIR)
-    zipName = "%s-%s.zip" % (PLUGIN_NAME, latestVersion)
-    targetZip = os.path.join(PLUGIN_NAME, zipName)
+    zipName = "%s-%s.zip" % (plugin_name, latestVersion)
+    targetZip = os.path.join(plugin_name, zipName)
 
     if os.path.isfile(targetZip):
         shutil.rmtree(TEMP_DIR)
-        print 'Already has latest (%s)' % (latestVersion)
-        return 0
+        print '%s Already has latest (%s)' % (plugin_name, latestVersion)
+        return False
 
     os.rename(tmpZip, os.path.join(TEMP_DIR, zipName))
-    shutil.rmtree(PLUGIN_NAME)
-    os.rename(TEMP_DIR, PLUGIN_NAME)
+    shutil.rmtree(plugin_name)
+    os.rename(TEMP_DIR, plugin_name)
 
-    print 'Updated to latest (%s)' % latestVersion
+    print 'Updated %s to latest (%s)' % (plugin_name, latestVersion)
+    return True
+
+def main():
+    if not any([procecss_dep(plugin_name, latest_zip)
+            for plugin_name, latest_zip in DEP_MAP.iteritems()]):
+        # Nothing to do.
+        return 0
 
     sys.path.append(os.path.join(os.path.split(__file__)[0], "kodi-addons"))
     from addons_xml_generator import Generator
