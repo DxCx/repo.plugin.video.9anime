@@ -8,6 +8,8 @@ from updateLatest import downloadZip, extractMeta
 DEP_MAP = {
     "script.module.urlresolver":
     "https://github.com/tvaddonsco/script.module.urlresolver/archive/master.zip",
+    "script.module.inputstreamhelper":
+    "https://github.com/emilsvennesson/script.module.inputstreamhelper/archive/master.zip",
 }
 
 TEMP_DIR = "dep_temp"
