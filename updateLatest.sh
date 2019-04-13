@@ -1,20 +1,35 @@
 #!/bin/bash
-set -e
+OLD_PLUGIN=plugin.video.9anime
+PLUGIN=plugin.video.wonderfulsubs
 
-git checkout master
-git remote update origin
-git reset --hard origin/master
+function update() {
+	local ADDON=$1
+	local NEW_VERSION
 
-NEW_VERSION=`python2 updateLatest.py`
-BRANCH_NAME=version-${NEW_VERSION}
+	if ! NEW_VERSION=$(python2 updateLatest.py ${ADDON}); then
+		return;
+	fi
 
-git checkout -b ${BRANCH_NAME}
-python2 kodi-addons/addons_xml_generator.py
-git add plugin.video.9anime
-git add addons.xml
-git add addons.xml.md5
+	local BRANCH_NAME=version-${ADDON}-${NEW_VERSION}
 
-git commit -m "chore(addons): update plugin.video.9anime to version ${NEW_VERSION}"
-git push -u origin ${BRANCH_NAME}
-git checkout master
-echo "Done: https://github.com/DxCx/repo.plugin.video.9anime/compare/${BRANCH_NAME}?expand=1"
+	git checkout master
+	git remote update origin
+	git reset --hard origin/master
+
+	git checkout -b ${BRANCH_NAME}
+	python2 kodi-addons/addons_xml_generator.py
+	git add ${ADDON}
+	git add addons.xml
+	git add addons.xml.md5
+
+	git commit -m "chore(addons): update ${ADDON} to version ${NEW_VERSION}"
+	git push -u origin ${BRANCH_NAME}
+	git checkout master
+
+	echo "Done: https://github.com/DxCx/repo.plugin.video.9anime/compare/${BRANCH_NAME}?expand=1"
+	exit 0
+}
+
+update ${OLD_PLUGIN}
+update ${PLUGIN}
+exit 1

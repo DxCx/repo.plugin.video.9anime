@@ -3,13 +3,13 @@ import urllib2
 import os
 import json
 import shutil
+import sys
 from zipfile import ZipFile
 
-PLUGIN_NAME = "plugin.video.9anime"
-TAGS_FEED_URL = "https://api.github.com/repos/DxCx/plugin.video.9anime/tags"
+TAGS_FEED_URL = lambda p: "https://api.github.com/repos/DxCx/%s/tags" % p
 
-def fetchTags():
-    resp = urllib2.urlopen(TAGS_FEED_URL)
+def fetchTags(pluginName):
+    resp = urllib2.urlopen(TAGS_FEED_URL(pluginName))
     return json.loads(resp.read())
 
 def downloadZip(url, targetPath):
@@ -45,30 +45,36 @@ def extractMeta(pluginPath, latestZip):
 
     shutil.rmtree(tmpDir)
 
-def main():
+def main(pluginName):
     # Get latest tag
-    tags = fetchTags()
+    tags = fetchTags(pluginName)
     latest = tags[0]
     latestVersion = latest['name'][1:]
 
     # resolve zip path
-    targetZip = "%s/%s-%s.zip" % (PLUGIN_NAME, PLUGIN_NAME, latestVersion)
+    targetZip = "%s/%s-%s.zip" % (pluginName, pluginName, latestVersion)
 
     if os.path.isfile(targetZip):
         raise Exception('Already has latest')
 
     # Cleanup for the older versions
     # TODO: Just delete the whole directory and rebuild.
-    shutil.rmtree(PLUGIN_NAME)
-    os.mkdir(PLUGIN_NAME)
+    if os.path.isdir(pluginName):
+        shutil.rmtree(pluginName)
+    os.mkdir(pluginName)
 
     # Download latest
     downloadZip(latest['zipball_url'], targetZip)
 
     # Extracts metadata
-    extractMeta("./%s" % PLUGIN_NAME, targetZip)
+    extractMeta("./%s" % pluginName, targetZip)
 
     print latestVersion
 
 if __name__ == "__main__":
-    main()
+    if (len(sys.argv) != 2):
+        print "Usage: %s <Plugin name>" % sys.argv[0]
+        sys.exit(1)
+
+    main(sys.argv[1])
+    sys.exit(0)
