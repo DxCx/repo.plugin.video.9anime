@@ -6,15 +6,15 @@ function update() {
 	local ADDON=$1
 	local NEW_VERSION
 
+	git checkout master
+	git remote update origin
+	git reset --hard origin/master
+
 	if ! NEW_VERSION=$(python2 updateLatest.py ${ADDON}); then
 		return;
 	fi
 
 	local BRANCH_NAME=version-${ADDON}-${NEW_VERSION}
-
-	git checkout master
-	git remote update origin
-	git reset --hard origin/master
 
 	git checkout -b ${BRANCH_NAME}
 	python2 kodi-addons/addons_xml_generator.py
