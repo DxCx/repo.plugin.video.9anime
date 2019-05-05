@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="repo.plugin.video.9anime" name="9Anime Kodi Repository" version="0.0.3" provider-name="DxCx">
+<addon id="repo.plugin.video.9anime" name="Wonderful Subs Kodi Repository" version="0.0.4" provider-name="DxCx">
 	<requires>
 		<import addon="xbmc.addon" version="12.0.0"/>
 	</requires>
@@ -10,7 +10,7 @@
 			<hashes>false</hashes>
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<summary lang="en">Repository for 9Anime video plugin</summary>
+		<summary lang="en">Repository for Wonderful Subs video plugin</summary>
 		<description lang="en">Download and install DxCx's addons repository.</description>
 		<source>https://github.com/DxCx/plugin.video.9anime</source>
 		<platform>all</platform>
