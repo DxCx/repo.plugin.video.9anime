@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="repo.plugin.video.9anime" name="DxCx Kodi Repository" version="0.0.4" provider-name="DxCx">
+<addon id="repo.plugin.video.9anime" name="DxCx Kodi Repository" version="0.0.5" provider-name="DxCx">
 	<requires>
 		<import addon="xbmc.addon" version="12.0.0"/>
 	</requires>
